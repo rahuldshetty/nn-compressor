@@ -63,14 +63,12 @@ class KerasModel(Model):
         Compresses given valid content using encoder
         """
         assert type(data) ==  type(np.array([]))
-        assert data.shape[1:] ==  self.encoder.layers[0].output.shape.as_list()[1:]
 
         result = self.encoder.predict(data)
         return result
 
     def uncompress(self, data):
         assert type(data) ==  type(np.array([]))
-        assert data.shape[1:] ==  self.decoder.layers[0].output.shape.as_list()[1:]
 
         result = self.decoder.predict(data)
         return result
